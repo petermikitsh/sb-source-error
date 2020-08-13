@@ -1,15 +1,15 @@
 import React from "react";
 import { Meta } from "@storybook/react/types-6-0";
-
 import { Button } from "./Button";
 
+// remove 'as Meta' for storysource to work
 export default {
   title: "Example/Button",
   component: Button,
   argTypes: {
     backgroundColor: { control: "color" },
   },
-};
+} as Meta;
 
 const Template = (args) => <Button {...args} />;
 
