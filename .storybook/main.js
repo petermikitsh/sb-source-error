@@ -6,17 +6,20 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/source-loader",
+    "@storybook/addon-storysource",
   ],
   webpackFinal: async (config) => {
+    // remove existing source-loader in place
+    config.module.rules.splice(6, 1);
+    console.log(config.module.rules);
     config.module.rules = [
       ...config.module.rules,
       {
-        test: /\.stories\.jsx?$/,
+        test: /\.stories\.[jt]sx?$/,
         loaders: [
           {
             loader: require.resolve("@storybook/source-loader"),
-            options: { parser: "javascript" },
+            options: { parser: "typescript", injectStoryParameters: false },
           },
         ],
         enforce: "pre",

@@ -21,6 +21,7 @@
     "react-is": "^16.13.1"
   },
   "dependencies": {
+    "@storybook/addon-storysource": "^6.0.5",
     "@storybook/source-loader": "^6.0.5"
   }
 }
